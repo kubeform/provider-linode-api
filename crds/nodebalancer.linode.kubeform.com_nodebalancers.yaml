@@ -45,6 +45,7 @@ spec:
                     format: int64
                     type: integer
                   created:
+                    description: When this NodeBalancer was created.
                     type: string
                   hostname:
                     description: This NodeBalancer's hostname, ending with .nodebalancer.linode.com
@@ -70,6 +71,8 @@ spec:
                       type: string
                     type: array
                   transfer:
+                    description: Information about the amount of transfer this NodeBalancer
+                      has had so far this month.
                     items:
                       properties:
                         in:
@@ -90,6 +93,7 @@ spec:
                       type: object
                     type: array
                   updated:
+                    description: When this NodeBalancer was last updated.
                     type: string
                 required:
                 - region
@@ -111,6 +115,7 @@ spec:
                     format: int64
                     type: integer
                   created:
+                    description: When this NodeBalancer was created.
                     type: string
                   hostname:
                     description: This NodeBalancer's hostname, ending with .nodebalancer.linode.com
@@ -136,6 +141,8 @@ spec:
                       type: string
                     type: array
                   transfer:
+                    description: Information about the amount of transfer this NodeBalancer
+                      has had so far this month.
                     items:
                       properties:
                         in:
@@ -156,6 +163,7 @@ spec:
                       type: object
                     type: array
                   updated:
+                    description: When this NodeBalancer was last updated.
                     type: string
                 required:
                 - region

@@ -42,16 +42,22 @@ type Stackscript struct {
 }
 
 type StackscriptSpecUserDefinedFields struct {
+	// The default value. If not specified, this value will be used.
 	// +optional
 	Default *string `json:"default,omitempty" tf:"default"`
+	// An example value for the field.
 	// +optional
 	Example *string `json:"example,omitempty" tf:"example"`
+	// A human-readable label for the field that will serve as the input prompt for entering the value during deployment.
 	// +optional
 	Label *string `json:"label,omitempty" tf:"label"`
+	// A list of acceptable values for the field in any quantity, combination or order.
 	// +optional
 	ManyOf *string `json:"manyOf,omitempty" tf:"many_of"`
+	// The name of the field.
 	// +optional
 	Name *string `json:"name,omitempty" tf:"name"`
+	// A list of acceptable single values for the field.
 	// +optional
 	OneOf *string `json:"oneOf,omitempty" tf:"one_of"`
 }

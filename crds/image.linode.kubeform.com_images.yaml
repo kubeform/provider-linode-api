@@ -61,6 +61,12 @@ spec:
                     description: Only Images created automatically (from a deleted
                       Linode; type=automatic) will expire.
                     type: string
+                  fileHash:
+                    description: The MD5 hash of the image file.
+                    type: string
+                  filePath:
+                    description: The name of the file to upload to this image.
+                    type: string
                   id:
                     type: string
                   isPublic:
@@ -75,11 +81,17 @@ spec:
                       from.
                     format: int64
                     type: integer
+                  region:
+                    description: The region to upload to.
+                    type: string
                   size:
                     description: The minimum size this Image needs to deploy. Size
                       is in MB.
                     format: int64
                     type: integer
+                  status:
+                    description: The current status of this Image.
+                    type: string
                   timeouts:
                     properties:
                       create:
@@ -128,9 +140,7 @@ spec:
                       Images.
                     type: string
                 required:
-                - diskID
                 - label
-                - linodeID
                 type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
@@ -165,6 +175,12 @@ spec:
                     description: Only Images created automatically (from a deleted
                       Linode; type=automatic) will expire.
                     type: string
+                  fileHash:
+                    description: The MD5 hash of the image file.
+                    type: string
+                  filePath:
+                    description: The name of the file to upload to this image.
+                    type: string
                   id:
                     type: string
                   isPublic:
@@ -179,11 +195,17 @@ spec:
                       from.
                     format: int64
                     type: integer
+                  region:
+                    description: The region to upload to.
+                    type: string
                   size:
                     description: The minimum size this Image needs to deploy. Size
                       is in MB.
                     format: int64
                     type: integer
+                  status:
+                    description: The current status of this Image.
+                    type: string
                   timeouts:
                     properties:
                       create:
@@ -232,9 +254,7 @@ spec:
                       Images.
                     type: string
                 required:
-                - diskID
                 - label
-                - linodeID
                 type: object
               terminationPolicy:
                 enum:

@@ -138,6 +138,7 @@ type UserSpec struct {
 type UserSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// A set containing all of the user's active grants.
 	// +optional
 	DomainGrant []UserSpecDomainGrant `json:"domainGrant,omitempty" tf:"domain_grant"`
 	// The email of the user.
@@ -145,12 +146,16 @@ type UserSpecResource struct {
 	// A structure containing the Account-level grants a User has.
 	// +optional
 	GlobalGrants *UserSpecGlobalGrants `json:"globalGrants,omitempty" tf:"global_grants"`
+	// A set containing all of the user's active grants.
 	// +optional
 	ImageGrant []UserSpecImageGrant `json:"imageGrant,omitempty" tf:"image_grant"`
+	// A set containing all of the user's active grants.
 	// +optional
 	LinodeGrant []UserSpecLinodeGrant `json:"linodeGrant,omitempty" tf:"linode_grant"`
+	// A set containing all of the user's active grants.
 	// +optional
 	LongviewGrant []UserSpecLongviewGrant `json:"longviewGrant,omitempty" tf:"longview_grant"`
+	// A set containing all of the user's active grants.
 	// +optional
 	NodebalancerGrant []UserSpecNodebalancerGrant `json:"nodebalancerGrant,omitempty" tf:"nodebalancer_grant"`
 	// If true, the user must be explicitly granted access to platform actions and entities.
@@ -159,6 +164,7 @@ type UserSpecResource struct {
 	// SSH keys to add to the user profile.
 	// +optional
 	SshKeys []string `json:"sshKeys,omitempty" tf:"ssh_keys"`
+	// A set containing all of the user's active grants.
 	// +optional
 	StackscriptGrant []UserSpecStackscriptGrant `json:"stackscriptGrant,omitempty" tf:"stackscript_grant"`
 	// If the User has Two Factor Authentication (TFA) enabled.
@@ -166,6 +172,7 @@ type UserSpecResource struct {
 	TfaEnabled *bool `json:"tfaEnabled,omitempty" tf:"tfa_enabled"`
 	// The username of the user.
 	Username *string `json:"username" tf:"username"`
+	// A set containing all of the user's active grants.
 	// +optional
 	VolumeGrant []UserSpecVolumeGrant `json:"volumeGrant,omitempty" tf:"volume_grant"`
 }

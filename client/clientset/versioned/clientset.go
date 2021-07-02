@@ -33,7 +33,6 @@ import (
 	stackscriptv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/stackscript/v1alpha1"
 	tokenv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/token/v1alpha1"
 	userv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/user/v1alpha1"
-	vlanv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/vlan/v1alpha1"
 	volumev1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/volume/v1alpha1"
 
 	discovery "k8s.io/client-go/discovery"
@@ -55,7 +54,6 @@ type Interface interface {
 	StackscriptV1alpha1() stackscriptv1alpha1.StackscriptV1alpha1Interface
 	TokenV1alpha1() tokenv1alpha1.TokenV1alpha1Interface
 	UserV1alpha1() userv1alpha1.UserV1alpha1Interface
-	VlanV1alpha1() vlanv1alpha1.VlanV1alpha1Interface
 	VolumeV1alpha1() volumev1alpha1.VolumeV1alpha1Interface
 }
 
@@ -75,7 +73,6 @@ type Clientset struct {
 	stackscriptV1alpha1  *stackscriptv1alpha1.StackscriptV1alpha1Client
 	tokenV1alpha1        *tokenv1alpha1.TokenV1alpha1Client
 	userV1alpha1         *userv1alpha1.UserV1alpha1Client
-	vlanV1alpha1         *vlanv1alpha1.VlanV1alpha1Client
 	volumeV1alpha1       *volumev1alpha1.VolumeV1alpha1Client
 }
 
@@ -137,11 +134,6 @@ func (c *Clientset) TokenV1alpha1() tokenv1alpha1.TokenV1alpha1Interface {
 // UserV1alpha1 retrieves the UserV1alpha1Client
 func (c *Clientset) UserV1alpha1() userv1alpha1.UserV1alpha1Interface {
 	return c.userV1alpha1
-}
-
-// VlanV1alpha1 retrieves the VlanV1alpha1Client
-func (c *Clientset) VlanV1alpha1() vlanv1alpha1.VlanV1alpha1Interface {
-	return c.vlanV1alpha1
 }
 
 // VolumeV1alpha1 retrieves the VolumeV1alpha1Client
@@ -218,10 +210,6 @@ func NewForConfig(c *rest.Config) (*Clientset, error) {
 	if err != nil {
 		return nil, err
 	}
-	cs.vlanV1alpha1, err = vlanv1alpha1.NewForConfig(&configShallowCopy)
-	if err != nil {
-		return nil, err
-	}
 	cs.volumeV1alpha1, err = volumev1alpha1.NewForConfig(&configShallowCopy)
 	if err != nil {
 		return nil, err
@@ -250,7 +238,6 @@ func NewForConfigOrDie(c *rest.Config) *Clientset {
 	cs.stackscriptV1alpha1 = stackscriptv1alpha1.NewForConfigOrDie(c)
 	cs.tokenV1alpha1 = tokenv1alpha1.NewForConfigOrDie(c)
 	cs.userV1alpha1 = userv1alpha1.NewForConfigOrDie(c)
-	cs.vlanV1alpha1 = vlanv1alpha1.NewForConfigOrDie(c)
 	cs.volumeV1alpha1 = volumev1alpha1.NewForConfigOrDie(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClientForConfigOrDie(c)
@@ -272,7 +259,6 @@ func New(c rest.Interface) *Clientset {
 	cs.stackscriptV1alpha1 = stackscriptv1alpha1.New(c)
 	cs.tokenV1alpha1 = tokenv1alpha1.New(c)
 	cs.userV1alpha1 = userv1alpha1.New(c)
-	cs.vlanV1alpha1 = vlanv1alpha1.New(c)
 	cs.volumeV1alpha1 = volumev1alpha1.New(c)
 
 	cs.DiscoveryClient = discovery.NewDiscoveryClient(c)

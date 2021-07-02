@@ -40,6 +40,8 @@ spec:
               kubeformOutput:
                 properties:
                   alerts:
+                    description: Configuration options for alert triggers on this
+                      Linode.
                     properties:
                       cpu:
                         description: The percentage of CPU usage required to trigger
@@ -163,6 +165,8 @@ spec:
                             slot allowed.
                           properties:
                             sda:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -179,6 +183,8 @@ spec:
                                   type: integer
                               type: object
                             sdb:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -195,6 +201,8 @@ spec:
                                   type: integer
                               type: object
                             sdc:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -211,6 +219,8 @@ spec:
                                   type: integer
                               type: object
                             sdd:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -227,6 +237,8 @@ spec:
                                   type: integer
                               type: object
                             sde:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -243,6 +255,8 @@ spec:
                                   type: integer
                               type: object
                             sdf:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -259,6 +273,8 @@ spec:
                                   type: integer
                               type: object
                             sdg:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -275,6 +291,8 @@ spec:
                                   type: integer
                               type: object
                             sdh:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -317,6 +335,22 @@ spec:
                                 thrashing.
                               type: boolean
                           type: object
+                        interface:
+                          description: An array of Network Interfaces for this Linode’s
+                            Configuration Profile.
+                          items:
+                            properties:
+                              ipamAddress:
+                                description: The IPAM Address of this interface.
+                                type: string
+                              label:
+                                description: The unique label of this interface.
+                                type: string
+                              purpose:
+                                description: The purpose of this interface.
+                                type: string
+                            type: object
+                          type: array
                         kernel:
                           description: 'A Kernel ID to boot a Linode with. Default
                             is based on image choice. (examples: linode/latest-64bit,
@@ -411,6 +445,23 @@ spec:
                       See /images for more information on the Images available for
                       you to use.
                     type: string
+                  interface:
+                    description: An array of Network Interfaces for this Linode to
+                      be created with. If an explicit config or disk is defined, interfaces
+                      must be declared in the config block.
+                    items:
+                      properties:
+                        ipamAddress:
+                          description: The IPAM Address of this interface.
+                          type: string
+                        label:
+                          description: The unique label of this interface.
+                          type: string
+                        purpose:
+                          description: The purpose of this interface.
+                          type: string
+                      type: object
+                    type: array
                   ipAddress:
                     description: This Linode's Public IPv4 Address. If there are multiple
                       public IPv4 addresses on this Instance, an arbitrary address
@@ -447,6 +498,8 @@ spec:
                       This cannot be changed without opening a support ticket.
                     type: string
                   specs:
+                    description: Information about the resources available to this
+                      Linode.
                     items:
                       properties:
                         disk:
@@ -567,6 +620,8 @@ spec:
               resource:
                 properties:
                   alerts:
+                    description: Configuration options for alert triggers on this
+                      Linode.
                     properties:
                       cpu:
                         description: The percentage of CPU usage required to trigger
@@ -690,6 +745,8 @@ spec:
                             slot allowed.
                           properties:
                             sda:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -706,6 +763,8 @@ spec:
                                   type: integer
                               type: object
                             sdb:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -722,6 +781,8 @@ spec:
                                   type: integer
                               type: object
                             sdc:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -738,6 +799,8 @@ spec:
                                   type: integer
                               type: object
                             sdd:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -754,6 +817,8 @@ spec:
                                   type: integer
                               type: object
                             sde:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -770,6 +835,8 @@ spec:
                                   type: integer
                               type: object
                             sdf:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -786,6 +853,8 @@ spec:
                                   type: integer
                               type: object
                             sdg:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -802,6 +871,8 @@ spec:
                                   type: integer
                               type: object
                             sdh:
+                              description: Device can be either a Disk or Volume identified
+                                by disk_id or volume_id. Only one type per slot allowed.
                               properties:
                                 diskID:
                                   description: The Disk ID to map to this disk slot
@@ -844,6 +915,22 @@ spec:
                                 thrashing.
                               type: boolean
                           type: object
+                        interface:
+                          description: An array of Network Interfaces for this Linode’s
+                            Configuration Profile.
+                          items:
+                            properties:
+                              ipamAddress:
+                                description: The IPAM Address of this interface.
+                                type: string
+                              label:
+                                description: The unique label of this interface.
+                                type: string
+                              purpose:
+                                description: The purpose of this interface.
+                                type: string
+                            type: object
+                          type: array
                         kernel:
                           description: 'A Kernel ID to boot a Linode with. Default
                             is based on image choice. (examples: linode/latest-64bit,
@@ -938,6 +1025,23 @@ spec:
                       See /images for more information on the Images available for
                       you to use.
                     type: string
+                  interface:
+                    description: An array of Network Interfaces for this Linode to
+                      be created with. If an explicit config or disk is defined, interfaces
+                      must be declared in the config block.
+                    items:
+                      properties:
+                        ipamAddress:
+                          description: The IPAM Address of this interface.
+                          type: string
+                        label:
+                          description: The unique label of this interface.
+                          type: string
+                        purpose:
+                          description: The purpose of this interface.
+                          type: string
+                      type: object
+                    type: array
                   ipAddress:
                     description: This Linode's Public IPv4 Address. If there are multiple
                       public IPv4 addresses on this Instance, an arbitrary address
@@ -974,6 +1078,8 @@ spec:
                       This cannot be changed without opening a support ticket.
                     type: string
                   specs:
+                    description: Information about the resources available to this
+                      Linode.
                     items:
                       properties:
                         disk:
