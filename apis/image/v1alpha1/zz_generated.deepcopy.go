@@ -149,6 +149,16 @@ func (in *ImageSpecResource) DeepCopyInto(out *ImageSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
+	if in.FileHash != nil {
+		in, out := &in.FileHash, &out.FileHash
+		*out = new(string)
+		**out = **in
+	}
+	if in.FilePath != nil {
+		in, out := &in.FilePath, &out.FilePath
+		*out = new(string)
+		**out = **in
+	}
 	if in.IsPublic != nil {
 		in, out := &in.IsPublic, &out.IsPublic
 		*out = new(bool)
@@ -164,9 +174,19 @@ func (in *ImageSpecResource) DeepCopyInto(out *ImageSpecResource) {
 		*out = new(int64)
 		**out = **in
 	}
+	if in.Region != nil {
+		in, out := &in.Region, &out.Region
+		*out = new(string)
+		**out = **in
+	}
 	if in.Size != nil {
 		in, out := &in.Size, &out.Size
 		*out = new(int64)
+		**out = **in
+	}
+	if in.Status != nil {
+		in, out := &in.Status, &out.Status
+		*out = new(string)
 		**out = **in
 	}
 	if in.Type != nil {

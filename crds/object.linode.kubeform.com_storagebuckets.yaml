@@ -40,12 +40,15 @@ spec:
               kubeformOutput:
                 properties:
                   accessKey:
+                    description: The S3 access key to use for this resource. (Required
+                      for lifecycle_rule and versioning)
                     type: string
                   acl:
                     description: The Access Control Level of the bucket using a canned
                       ACL string.
                     type: string
                   cert:
+                    description: The cert used by this Object Storage Bucket.
                     type: object
                   cluster:
                     description: The cluster of the Linode Object Storage Bucket.
@@ -112,6 +115,8 @@ spec:
                       type: object
                     type: array
                   secretKey:
+                    description: The S3 secret key to use for this resource. (Required
+                      for lifecycle_rule and versioning)
                     type: string
                   versioning:
                     description: Whether to enable versioning.
@@ -132,12 +137,15 @@ spec:
               resource:
                 properties:
                   accessKey:
+                    description: The S3 access key to use for this resource. (Required
+                      for lifecycle_rule and versioning)
                     type: string
                   acl:
                     description: The Access Control Level of the bucket using a canned
                       ACL string.
                     type: string
                   cert:
+                    description: The cert used by this Object Storage Bucket.
                     type: object
                   cluster:
                     description: The cluster of the Linode Object Storage Bucket.
@@ -204,6 +212,8 @@ spec:
                       type: object
                     type: array
                   secretKey:
+                    description: The S3 secret key to use for this resource. (Required
+                      for lifecycle_rule and versioning)
                     type: string
                   versioning:
                     description: Whether to enable versioning.

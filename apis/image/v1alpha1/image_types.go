@@ -71,20 +71,34 @@ type ImageSpecResource struct {
 	// +optional
 	Description *string `json:"description,omitempty" tf:"description"`
 	// The ID of the Linode Disk that this Image will be created from.
-	DiskID *int64 `json:"diskID" tf:"disk_id"`
+	// +optional
+	DiskID *int64 `json:"diskID,omitempty" tf:"disk_id"`
 	// Only Images created automatically (from a deleted Linode; type=automatic) will expire.
 	// +optional
 	Expiry *string `json:"expiry,omitempty" tf:"expiry"`
+	// The MD5 hash of the image file.
+	// +optional
+	FileHash *string `json:"fileHash,omitempty" tf:"file_hash"`
+	// The name of the file to upload to this image.
+	// +optional
+	FilePath *string `json:"filePath,omitempty" tf:"file_path"`
 	// True if the Image is public.
 	// +optional
 	IsPublic *bool `json:"isPublic,omitempty" tf:"is_public"`
 	// A short description of the Image. Labels cannot contain special characters.
 	Label *string `json:"label" tf:"label"`
 	// The ID of the Linode that this Image will be created from.
-	LinodeID *int64 `json:"linodeID" tf:"linode_id"`
+	// +optional
+	LinodeID *int64 `json:"linodeID,omitempty" tf:"linode_id"`
+	// The region to upload to.
+	// +optional
+	Region *string `json:"region,omitempty" tf:"region"`
 	// The minimum size this Image needs to deploy. Size is in MB.
 	// +optional
 	Size *int64 `json:"size,omitempty" tf:"size"`
+	// The current status of this Image.
+	// +optional
+	Status *string `json:"status,omitempty" tf:"status"`
 	// How the Image was created. 'Manual' Images can be created at any time. 'Automatic' images are created automatically from a deleted Linode.
 	// +optional
 	Type *string `json:"type,omitempty" tf:"type"`

@@ -89,6 +89,9 @@ spec:
                   id:
                     type: string
                   nodeStatus:
+                    description: A structure containing information about the health
+                      of the backends for this port. This information is updated periodically
+                      as checks are performed against backends.
                     items:
                       properties:
                         down:
@@ -207,6 +210,9 @@ spec:
                   id:
                     type: string
                   nodeStatus:
+                    description: A structure containing information about the health
+                      of the backends for this port. This information is updated periodically
+                      as checks are performed against backends.
                     items:
                       properties:
                         down:

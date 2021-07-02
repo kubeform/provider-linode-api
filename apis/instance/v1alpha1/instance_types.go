@@ -173,20 +173,28 @@ type InstanceSpecConfigDevicesSdh struct {
 }
 
 type InstanceSpecConfigDevices struct {
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sda *InstanceSpecConfigDevicesSda `json:"sda,omitempty" tf:"sda"`
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sdb *InstanceSpecConfigDevicesSdb `json:"sdb,omitempty" tf:"sdb"`
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sdc *InstanceSpecConfigDevicesSdc `json:"sdc,omitempty" tf:"sdc"`
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sdd *InstanceSpecConfigDevicesSdd `json:"sdd,omitempty" tf:"sdd"`
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sde *InstanceSpecConfigDevicesSde `json:"sde,omitempty" tf:"sde"`
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sdf *InstanceSpecConfigDevicesSdf `json:"sdf,omitempty" tf:"sdf"`
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sdg *InstanceSpecConfigDevicesSdg `json:"sdg,omitempty" tf:"sdg"`
+	// Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.
 	// +optional
 	Sdh *InstanceSpecConfigDevicesSdh `json:"sdh,omitempty" tf:"sdh"`
 }
@@ -209,6 +217,18 @@ type InstanceSpecConfigHelpers struct {
 	UpdatedbDisabled *bool `json:"updatedbDisabled,omitempty" tf:"updatedb_disabled"`
 }
 
+type InstanceSpecConfigInterface struct {
+	// The IPAM Address of this interface.
+	// +optional
+	IpamAddress *string `json:"ipamAddress,omitempty" tf:"ipam_address"`
+	// The unique label of this interface.
+	// +optional
+	Label *string `json:"label,omitempty" tf:"label"`
+	// The purpose of this interface.
+	// +optional
+	Purpose *string `json:"purpose,omitempty" tf:"purpose"`
+}
+
 type InstanceSpecConfig struct {
 	// Optional field for arbitrary User comments on this Config.
 	// +optional
@@ -219,6 +239,9 @@ type InstanceSpecConfig struct {
 	// Helpers enabled when booting to this Linode Config.
 	// +optional
 	Helpers *InstanceSpecConfigHelpers `json:"helpers,omitempty" tf:"helpers"`
+	// An array of Network Interfaces for this Linode’s Configuration Profile.
+	// +optional
+	Interface []InstanceSpecConfigInterface `json:"interface,omitempty" tf:"interface"`
 	// A Kernel ID to boot a Linode with. Default is based on image choice. (examples: linode/latest-64bit, linode/grub2, linode/direct-disk)
 	// +optional
 	Kernel *string `json:"kernel,omitempty" tf:"kernel"`
@@ -272,6 +295,18 @@ type InstanceSpecDisk struct {
 	StackscriptID *int64 `json:"stackscriptID,omitempty" tf:"stackscript_id"`
 }
 
+type InstanceSpecInterface struct {
+	// The IPAM Address of this interface.
+	// +optional
+	IpamAddress *string `json:"ipamAddress,omitempty" tf:"ipam_address"`
+	// The unique label of this interface.
+	// +optional
+	Label *string `json:"label,omitempty" tf:"label"`
+	// The purpose of this interface.
+	// +optional
+	Purpose *string `json:"purpose,omitempty" tf:"purpose"`
+}
+
 type InstanceSpecSpecs struct {
 	// The amount of storage space, in GB. this Linode has access to. A typical Linode will divide this space between a primary disk with an image deployed to it, and a swap disk, usually 512 MB. This is the default configuration created when deploying a Linode with an image without specifying disks.
 	// +optional
@@ -306,6 +341,7 @@ type InstanceSpecResource struct {
 
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// Configuration options for alert triggers on this Linode.
 	// +optional
 	Alerts *InstanceSpecAlerts `json:"alerts,omitempty" tf:"alerts"`
 	// A list of SSH public keys to deploy for the root user on the newly created Linode. Only accepted if 'image' is provided.
@@ -337,6 +373,9 @@ type InstanceSpecResource struct {
 	// An Image ID to deploy the Disk from. Official Linode Images start with linode/, while your Images start with private/. See /images for more information on the Images available for you to use.
 	// +optional
 	Image *string `json:"image,omitempty" tf:"image"`
+	// An array of Network Interfaces for this Linode to be created with. If an explicit config or disk is defined, interfaces must be declared in the config block.
+	// +optional
+	Interface []InstanceSpecInterface `json:"interface,omitempty" tf:"interface"`
 	// This Linode's Public IPv4 Address. If there are multiple public IPv4 addresses on this Instance, an arbitrary address will be used for this field.
 	// +optional
 	IpAddress *string `json:"ipAddress,omitempty" tf:"ip_address"`
@@ -360,6 +399,7 @@ type InstanceSpecResource struct {
 	// The password that will be initialially assigned to the 'root' user account.
 	// +optional
 	RootPass *string `json:"-" sensitive:"true" tf:"root_pass"`
+	// Information about the resources available to this Linode.
 	// +optional
 	Specs []InstanceSpecSpecs `json:"specs,omitempty" tf:"specs"`
 	// An object containing responses to any User Defined Fields present in the StackScript being deployed to this Linode. Only accepted if 'stackscript_id' is given. The required values depend on the StackScript being deployed.
