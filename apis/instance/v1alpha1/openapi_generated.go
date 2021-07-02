@@ -322,7 +322,9 @@ func GetOpenAPIDefinitions(ref common.ReferenceCallback) map[string]common.OpenA
 		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdhCodec": schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfigDevicesSdhCodec(ref),
 		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigHelpers":         schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfigHelpers(ref),
 		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigHelpersCodec":    schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfigHelpersCodec(ref),
+		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigInterface":       schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfigInterface(ref),
 		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecDisk":                  schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecDisk(ref),
+		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecInterface":             schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecInterface(ref),
 		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecResource":              schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecResource(ref),
 		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecSpecs":                 schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecSpecs(ref),
 		"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceStatus":                    schema_provider_linode_api_apis_instance_v1alpha1_InstanceStatus(ref),
@@ -14533,6 +14535,20 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfig(ref co
 							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigHelpers"),
 						},
 					},
+					"interface": {
+						SchemaProps: spec.SchemaProps{
+							Description: "An array of Network Interfaces for this Linode’s Configuration Profile.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigInterface"),
+									},
+								},
+							},
+						},
+					},
 					"kernel": {
 						SchemaProps: spec.SchemaProps{
 							Description: "A Kernel ID to boot a Linode with. Default is based on image choice. (examples: linode/latest-64bit, linode/grub2, linode/direct-disk)",
@@ -14580,7 +14596,7 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfig(ref co
 			},
 		},
 		Dependencies: []string{
-			"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevices", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigHelpers"},
+			"kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevices", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigHelpers", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigInterface"},
 	}
 }
 
@@ -14592,42 +14608,50 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfigDevices
 				Properties: map[string]spec.Schema{
 					"sda": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSda"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSda"),
 						},
 					},
 					"sdb": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdb"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdb"),
 						},
 					},
 					"sdc": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdc"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdc"),
 						},
 					},
 					"sdd": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdd"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdd"),
 						},
 					},
 					"sde": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSde"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSde"),
 						},
 					},
 					"sdf": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdf"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdf"),
 						},
 					},
 					"sdg": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdg"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdg"),
 						},
 					},
 					"sdh": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdh"),
+							Description: "Device can be either a Disk or Volume identified by disk_id or volume_id. Only one type per slot allowed.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfigDevicesSdh"),
 						},
 					},
 				},
@@ -15049,6 +15073,39 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfigHelpers
 	}
 }
 
+func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecConfigInterface(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"ipamAddress": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The IPAM Address of this interface.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"label": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The unique label of this interface.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"purpose": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The purpose of this interface.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
 func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecDisk(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -15141,6 +15198,39 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecDisk(ref comm
 	}
 }
 
+func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecInterface(ref common.ReferenceCallback) common.OpenAPIDefinition {
+	return common.OpenAPIDefinition{
+		Schema: spec.Schema{
+			SchemaProps: spec.SchemaProps{
+				Type: []string{"object"},
+				Properties: map[string]spec.Schema{
+					"ipamAddress": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The IPAM Address of this interface.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"label": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The unique label of this interface.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+					"purpose": {
+						SchemaProps: spec.SchemaProps{
+							Description: "The purpose of this interface.",
+							Type:        []string{"string"},
+							Format:      "",
+						},
+					},
+				},
+			},
+		},
+	}
+}
+
 func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecResource(ref common.ReferenceCallback) common.OpenAPIDefinition {
 	return common.OpenAPIDefinition{
 		Schema: spec.Schema{
@@ -15160,7 +15250,8 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecResource(ref 
 					},
 					"alerts": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecAlerts"),
+							Description: "Configuration options for alert triggers on this Linode.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecAlerts"),
 						},
 					},
 					"authorizedKeys": {
@@ -15269,6 +15360,20 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecResource(ref 
 							Format:      "",
 						},
 					},
+					"interface": {
+						SchemaProps: spec.SchemaProps{
+							Description: "An array of Network Interfaces for this Linode to be created with. If an explicit config or disk is defined, interfaces must be declared in the config block.",
+							Type:        []string{"array"},
+							Items: &spec.SchemaOrArray{
+								Schema: &spec.Schema{
+									SchemaProps: spec.SchemaProps{
+										Default: map[string]interface{}{},
+										Ref:     ref("kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecInterface"),
+									},
+								},
+							},
+						},
+					},
 					"ipAddress": {
 						SchemaProps: spec.SchemaProps{
 							Description: "This Linode's Public IPv4 Address. If there are multiple public IPv4 addresses on this Instance, an arbitrary address will be used for this field.",
@@ -15328,7 +15433,8 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecResource(ref 
 					},
 					"specs": {
 						SchemaProps: spec.SchemaProps{
-							Type: []string{"array"},
+							Description: "Information about the resources available to this Linode.",
+							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
@@ -15394,7 +15500,7 @@ func schema_provider_linode_api_apis_instance_v1alpha1_InstanceSpecResource(ref 
 			},
 		},
 		Dependencies: []string{
-			"kubeform.dev/apimachinery/api/v1alpha1.ResourceTimeout", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecAlerts", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecBackups", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfig", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecDisk", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecSpecs"},
+			"kubeform.dev/apimachinery/api/v1alpha1.ResourceTimeout", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecAlerts", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecBackups", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecConfig", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecDisk", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecInterface", "kubeform.dev/provider-linode-api/apis/instance/v1alpha1.InstanceSpecSpecs"},
 	}
 }
 

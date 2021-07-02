@@ -40,46 +40,65 @@ spec:
               kubeformOutput:
                 properties:
                   accessKey:
+                    description: The S3 access key with access to the target bucket.
                     type: string
                   acl:
+                    description: The ACL config given to this object.
                     type: string
                   bucket:
+                    description: The target bucket to put this object in.
                     type: string
                   cacheControl:
+                    description: This cache_control configuration of this object.
                     type: string
                   cluster:
+                    description: The target cluster that the bucket is in.
                     type: string
                   content:
+                    description: The contents of the Object to upload.
                     type: string
                   contentBase64:
+                    description: The base64 contents of the Object to upload.
                     type: string
                   contentDisposition:
+                    description: The content disposition configuration of this object.
                     type: string
                   contentEncoding:
+                    description: The encoding of the content of this object.
                     type: string
                   contentLanguage:
+                    description: The language metadata of this object.
                     type: string
                   contentType:
+                    description: The MIME type of the content.
                     type: string
                   etag:
+                    description: The specific version of this object.
                     type: string
                   forceDestroy:
+                    description: Whether the object should bypass deletion restrictions.
                     type: boolean
                   id:
                     type: string
                   key:
+                    description: The name of the uploaded object.
                     type: string
                   metadata:
                     additionalProperties:
                       type: string
+                    description: The metadata of this object
                     type: object
                   secretKey:
+                    description: The S3 secret key with access to the target bucket.
                     type: string
                   source:
+                    description: The source file to upload.
                     type: string
                   versionID:
+                    description: The version ID of this object.
                     type: string
                   websiteRedirect:
+                    description: The website redirect location of this object.
                     type: string
                 required:
                 - accessKey
@@ -100,46 +119,65 @@ spec:
               resource:
                 properties:
                   accessKey:
+                    description: The S3 access key with access to the target bucket.
                     type: string
                   acl:
+                    description: The ACL config given to this object.
                     type: string
                   bucket:
+                    description: The target bucket to put this object in.
                     type: string
                   cacheControl:
+                    description: This cache_control configuration of this object.
                     type: string
                   cluster:
+                    description: The target cluster that the bucket is in.
                     type: string
                   content:
+                    description: The contents of the Object to upload.
                     type: string
                   contentBase64:
+                    description: The base64 contents of the Object to upload.
                     type: string
                   contentDisposition:
+                    description: The content disposition configuration of this object.
                     type: string
                   contentEncoding:
+                    description: The encoding of the content of this object.
                     type: string
                   contentLanguage:
+                    description: The language metadata of this object.
                     type: string
                   contentType:
+                    description: The MIME type of the content.
                     type: string
                   etag:
+                    description: The specific version of this object.
                     type: string
                   forceDestroy:
+                    description: Whether the object should bypass deletion restrictions.
                     type: boolean
                   id:
                     type: string
                   key:
+                    description: The name of the uploaded object.
                     type: string
                   metadata:
                     additionalProperties:
                       type: string
+                    description: The metadata of this object
                     type: object
                   secretKey:
+                    description: The S3 secret key with access to the target bucket.
                     type: string
                   source:
+                    description: The source file to upload.
                     type: string
                   versionID:
+                    description: The version ID of this object.
                     type: string
                   websiteRedirect:
+                    description: The website redirect location of this object.
                     type: string
                 required:
                 - accessKey

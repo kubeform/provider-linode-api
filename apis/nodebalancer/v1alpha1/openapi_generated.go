@@ -14474,7 +14474,8 @@ func schema_provider_linode_api_apis_nodebalancer_v1alpha1_ConfigSpecResource(re
 					},
 					"nodeStatus": {
 						SchemaProps: spec.SchemaProps{
-							Type: []string{"array"},
+							Description: "A structure containing information about the health of the backends for this port. This information is updated periodically as checks are performed against backends.",
+							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
@@ -14990,8 +14991,9 @@ func schema_provider_linode_api_apis_nodebalancer_v1alpha1_NodebalancerSpecResou
 					},
 					"created": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "When this NodeBalancer was created.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"hostname": {
@@ -15046,7 +15048,8 @@ func schema_provider_linode_api_apis_nodebalancer_v1alpha1_NodebalancerSpecResou
 					},
 					"transfer": {
 						SchemaProps: spec.SchemaProps{
-							Type: []string{"array"},
+							Description: "Information about the amount of transfer this NodeBalancer has had so far this month.",
+							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
@@ -15059,8 +15062,9 @@ func schema_provider_linode_api_apis_nodebalancer_v1alpha1_NodebalancerSpecResou
 					},
 					"updated": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "When this NodeBalancer was last updated.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 				},

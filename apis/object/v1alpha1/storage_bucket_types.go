@@ -102,11 +102,13 @@ type StorageBucketSpec struct {
 type StorageBucketSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
+	// The S3 access key to use for this resource. (Required for lifecycle_rule and versioning)
 	// +optional
 	AccessKey *string `json:"accessKey,omitempty" tf:"access_key"`
 	// The Access Control Level of the bucket using a canned ACL string.
 	// +optional
 	Acl *string `json:"acl,omitempty" tf:"acl"`
+	// The cert used by this Object Storage Bucket.
 	// +optional
 	Cert *StorageBucketSpecCert `json:"cert,omitempty" tf:"cert"`
 	// The cluster of the Linode Object Storage Bucket.
@@ -119,6 +121,7 @@ type StorageBucketSpecResource struct {
 	// Lifecycle rules to be applied to the bucket.
 	// +optional
 	LifecycleRule []StorageBucketSpecLifecycleRule `json:"lifecycleRule,omitempty" tf:"lifecycle_rule"`
+	// The S3 secret key to use for this resource. (Required for lifecycle_rule and versioning)
 	// +optional
 	SecretKey *string `json:"secretKey,omitempty" tf:"secret_key"`
 	// Whether to enable versioning.

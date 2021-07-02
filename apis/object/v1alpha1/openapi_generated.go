@@ -14539,8 +14539,9 @@ func schema_provider_linode_api_apis_object_v1alpha1_StorageBucketSpecResource(r
 					},
 					"accessKey": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The S3 access key to use for this resource. (Required for lifecycle_rule and versioning)",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"acl": {
@@ -14552,7 +14553,8 @@ func schema_provider_linode_api_apis_object_v1alpha1_StorageBucketSpecResource(r
 					},
 					"cert": {
 						SchemaProps: spec.SchemaProps{
-							Ref: ref("kubeform.dev/provider-linode-api/apis/object/v1alpha1.StorageBucketSpecCert"),
+							Description: "The cert used by this Object Storage Bucket.",
+							Ref:         ref("kubeform.dev/provider-linode-api/apis/object/v1alpha1.StorageBucketSpecCert"),
 						},
 					},
 					"cluster": {
@@ -14592,8 +14594,9 @@ func schema_provider_linode_api_apis_object_v1alpha1_StorageBucketSpecResource(r
 					},
 					"secretKey": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The S3 secret key to use for this resource. (Required for lifecycle_rule and versioning)",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"versioning": {
@@ -14851,7 +14854,8 @@ func schema_provider_linode_api_apis_object_v1alpha1_StorageKeySpecResource(ref 
 					},
 					"bucketAccess": {
 						SchemaProps: spec.SchemaProps{
-							Type: []string{"array"},
+							Description: "A list of permissions to grant this limited access key.",
+							Type:        []string{"array"},
 							Items: &spec.SchemaOrArray{
 								Schema: &spec.Schema{
 									SchemaProps: spec.SchemaProps{
@@ -15078,91 +15082,106 @@ func schema_provider_linode_api_apis_object_v1alpha1_StorageObjectSpecResource(r
 					},
 					"accessKey": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The S3 access key with access to the target bucket.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"acl": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The ACL config given to this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"bucket": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The target bucket to put this object in.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"cacheControl": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "This cache_control configuration of this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"cluster": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The target cluster that the bucket is in.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"content": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The contents of the Object to upload.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"contentBase64": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The base64 contents of the Object to upload.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"contentDisposition": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The content disposition configuration of this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"contentEncoding": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The encoding of the content of this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"contentLanguage": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The language metadata of this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"contentType": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The MIME type of the content.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"etag": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The specific version of this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"forceDestroy": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"boolean"},
-							Format: "",
+							Description: "Whether the object should bypass deletion restrictions.",
+							Type:        []string{"boolean"},
+							Format:      "",
 						},
 					},
 					"key": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The name of the uploaded object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"metadata": {
 						SchemaProps: spec.SchemaProps{
-							Type: []string{"object"},
+							Description: "The metadata of this object",
+							Type:        []string{"object"},
 							AdditionalProperties: &spec.SchemaOrBool{
 								Allows: true,
 								Schema: &spec.Schema{
@@ -15177,26 +15196,30 @@ func schema_provider_linode_api_apis_object_v1alpha1_StorageObjectSpecResource(r
 					},
 					"secretKey": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The S3 secret key with access to the target bucket.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"source": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The source file to upload.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"versionID": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The version ID of this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"websiteRedirect": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The website redirect location of this object.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 				},

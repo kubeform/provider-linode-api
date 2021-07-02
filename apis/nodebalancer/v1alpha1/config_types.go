@@ -94,6 +94,7 @@ type ConfigSpecResource struct {
 	// What ciphers to use for SSL connections served by this NodeBalancer. `legacy` is considered insecure and should only be used if necessary.
 	// +optional
 	CipherSuite *string `json:"cipherSuite,omitempty" tf:"cipher_suite"`
+	// A structure containing information about the health of the backends for this port. This information is updated periodically as checks are performed against backends.
 	// +optional
 	NodeStatus []ConfigSpecNodeStatus `json:"nodeStatus,omitempty" tf:"node_status"`
 	// The ID of the NodeBalancer to access.

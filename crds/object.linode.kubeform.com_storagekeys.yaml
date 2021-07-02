@@ -43,6 +43,8 @@ spec:
                     description: This keypair's access key. This is not secret.
                     type: string
                   bucketAccess:
+                    description: A list of permissions to grant this limited access
+                      key.
                     items:
                       properties:
                         bucketName:
@@ -90,6 +92,8 @@ spec:
                     description: This keypair's access key. This is not secret.
                     type: string
                   bucketAccess:
+                    description: A list of permissions to grant this limited access
+                      key.
                     items:
                       properties:
                         bucketName:

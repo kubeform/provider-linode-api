@@ -71,6 +71,7 @@ type NodebalancerSpecResource struct {
 	// Throttle connections per second (0-20). Set to 0 (zero) to disable throttling.
 	// +optional
 	ClientConnThrottle *int64 `json:"clientConnThrottle,omitempty" tf:"client_conn_throttle"`
+	// When this NodeBalancer was created.
 	// +optional
 	Created *string `json:"created,omitempty" tf:"created"`
 	// This NodeBalancer's hostname, ending with .nodebalancer.linode.com
@@ -90,8 +91,10 @@ type NodebalancerSpecResource struct {
 	// An array of tags applied to this object. Tags are for organizational purposes only.
 	// +optional
 	Tags []string `json:"tags,omitempty" tf:"tags"`
+	// Information about the amount of transfer this NodeBalancer has had so far this month.
 	// +optional
 	Transfer []NodebalancerSpecTransfer `json:"transfer,omitempty" tf:"transfer"`
+	// When this NodeBalancer was last updated.
 	// +optional
 	Updated *string `json:"updated,omitempty" tf:"updated"`
 }

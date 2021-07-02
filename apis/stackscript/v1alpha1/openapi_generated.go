@@ -14490,38 +14490,44 @@ func schema_provider_linode_api_apis_stackscript_v1alpha1_StackscriptSpecUserDef
 				Properties: map[string]spec.Schema{
 					"default": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The default value. If not specified, this value will be used.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"example": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "An example value for the field.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"label": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "A human-readable label for the field that will serve as the input prompt for entering the value during deployment.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"manyOf": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "A list of acceptable values for the field in any quantity, combination or order.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"name": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "The name of the field.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 					"oneOf": {
 						SchemaProps: spec.SchemaProps{
-							Type:   []string{"string"},
-							Format: "",
+							Description: "A list of acceptable single values for the field.",
+							Type:        []string{"string"},
+							Format:      "",
 						},
 					},
 				},
