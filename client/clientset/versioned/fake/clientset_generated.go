@@ -44,8 +44,6 @@ import (
 	faketokenv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/token/v1alpha1/fake"
 	userv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/user/v1alpha1"
 	fakeuserv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/user/v1alpha1/fake"
-	vlanv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/vlan/v1alpha1"
-	fakevlanv1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/vlan/v1alpha1/fake"
 	volumev1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/volume/v1alpha1"
 	fakevolumev1alpha1 "kubeform.dev/provider-linode-api/client/clientset/versioned/typed/volume/v1alpha1/fake"
 
@@ -161,11 +159,6 @@ func (c *Clientset) TokenV1alpha1() tokenv1alpha1.TokenV1alpha1Interface {
 // UserV1alpha1 retrieves the UserV1alpha1Client
 func (c *Clientset) UserV1alpha1() userv1alpha1.UserV1alpha1Interface {
 	return &fakeuserv1alpha1.FakeUserV1alpha1{Fake: &c.Fake}
-}
-
-// VlanV1alpha1 retrieves the VlanV1alpha1Client
-func (c *Clientset) VlanV1alpha1() vlanv1alpha1.VlanV1alpha1Interface {
-	return &fakevlanv1alpha1.FakeVlanV1alpha1{Fake: &c.Fake}
 }
 
 // VolumeV1alpha1 retrieves the VolumeV1alpha1Client

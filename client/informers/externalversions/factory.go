@@ -37,7 +37,6 @@ import (
 	stackscript "kubeform.dev/provider-linode-api/client/informers/externalversions/stackscript"
 	token "kubeform.dev/provider-linode-api/client/informers/externalversions/token"
 	user "kubeform.dev/provider-linode-api/client/informers/externalversions/user"
-	vlan "kubeform.dev/provider-linode-api/client/informers/externalversions/vlan"
 	volume "kubeform.dev/provider-linode-api/client/informers/externalversions/volume"
 
 	v1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -198,7 +197,6 @@ type SharedInformerFactory interface {
 	Stackscript() stackscript.Interface
 	Token() token.Interface
 	User() user.Interface
-	Vlan() vlan.Interface
 	Volume() volume.Interface
 }
 
@@ -248,10 +246,6 @@ func (f *sharedInformerFactory) Token() token.Interface {
 
 func (f *sharedInformerFactory) User() user.Interface {
 	return user.New(f, f.namespace, f.tweakListOptions)
-}
-
-func (f *sharedInformerFactory) Vlan() vlan.Interface {
-	return vlan.New(f, f.namespace, f.tweakListOptions)
 }
 
 func (f *sharedInformerFactory) Volume() volume.Interface {

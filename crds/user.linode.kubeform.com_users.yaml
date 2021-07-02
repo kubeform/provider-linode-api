@@ -40,6 +40,7 @@ spec:
               kubeformOutput:
                 properties:
                   domainGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -100,6 +101,7 @@ spec:
                   id:
                     type: string
                   imageGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -116,6 +118,7 @@ spec:
                       type: object
                     type: array
                   linodeGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -132,6 +135,7 @@ spec:
                       type: object
                     type: array
                   longviewGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -148,6 +152,7 @@ spec:
                       type: object
                     type: array
                   nodebalancerGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -173,6 +178,7 @@ spec:
                       type: string
                     type: array
                   stackscriptGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -195,6 +201,7 @@ spec:
                     description: The username of the user.
                     type: string
                   volumeGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -226,6 +233,7 @@ spec:
               resource:
                 properties:
                   domainGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -286,6 +294,7 @@ spec:
                   id:
                     type: string
                   imageGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -302,6 +311,7 @@ spec:
                       type: object
                     type: array
                   linodeGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -318,6 +328,7 @@ spec:
                       type: object
                     type: array
                   longviewGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -334,6 +345,7 @@ spec:
                       type: object
                     type: array
                   nodebalancerGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -359,6 +371,7 @@ spec:
                       type: string
                     type: array
                   stackscriptGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:
@@ -381,6 +394,7 @@ spec:
                     description: The username of the user.
                     type: string
                   volumeGrant:
+                    description: A set containing all of the user's active grants.
                     items:
                       properties:
                         ID:

@@ -37,6 +37,9 @@ type LinodeSpec struct {
 	// Minimum delay in milliseconds before retrying a request.
 	// +optional
 	MinRetryDelayMs *int64 `json:"minRetryDelayMs,omitempty" tf:"min_retry_delay_ms"`
+	// Skip waiting for a linode_instance resource to finish deleting.
+	// +optional
+	SkipInstanceDeletePoll *bool `json:"skipInstanceDeletePoll,omitempty" tf:"skip_instance_delete_poll"`
 	// Skip waiting for a linode_instance resource to be running.
 	// +optional
 	SkipInstanceReadyPoll *bool `json:"skipInstanceReadyPoll,omitempty" tf:"skip_instance_ready_poll"`

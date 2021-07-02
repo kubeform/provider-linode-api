@@ -33,7 +33,6 @@ import (
 	stackscriptv1alpha1 "kubeform.dev/provider-linode-api/apis/stackscript/v1alpha1"
 	tokenv1alpha1 "kubeform.dev/provider-linode-api/apis/token/v1alpha1"
 	userv1alpha1 "kubeform.dev/provider-linode-api/apis/user/v1alpha1"
-	vlanv1alpha1 "kubeform.dev/provider-linode-api/apis/vlan/v1alpha1"
 	volumev1alpha1 "kubeform.dev/provider-linode-api/apis/volume/v1alpha1"
 
 	schema "k8s.io/apimachinery/pkg/runtime/schema"
@@ -125,10 +124,6 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		// Group=user.linode.kubeform.com, Version=v1alpha1
 	case userv1alpha1.SchemeGroupVersion.WithResource("users"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.User().V1alpha1().Users().Informer()}, nil
-
-		// Group=vlan.linode.kubeform.com, Version=v1alpha1
-	case vlanv1alpha1.SchemeGroupVersion.WithResource("vlans"):
-		return &genericInformer{resource: resource.GroupResource(), informer: f.Vlan().V1alpha1().Vlans().Informer()}, nil
 
 		// Group=volume.linode.kubeform.com, Version=v1alpha1
 	case volumev1alpha1.SchemeGroupVersion.WithResource("volumes"):

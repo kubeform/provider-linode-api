@@ -70,6 +70,7 @@ type StorageKeySpecResource struct {
 	// This keypair's access key. This is not secret.
 	// +optional
 	AccessKey *string `json:"accessKey,omitempty" tf:"access_key"`
+	// A list of permissions to grant this limited access key.
 	// +optional
 	BucketAccess []StorageKeySpecBucketAccess `json:"bucketAccess,omitempty" tf:"bucket_access"`
 	// The label given to this key. For display purposes only.
