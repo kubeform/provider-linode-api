@@ -42,7 +42,7 @@ type StorageObject struct {
 }
 
 type StorageObjectSpec struct {
-	KubeformOutput *StorageObjectSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StorageObjectSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StorageObjectSpecResource `json:"resource" tf:"resource"`
 

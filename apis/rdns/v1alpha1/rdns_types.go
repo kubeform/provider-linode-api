@@ -42,7 +42,7 @@ type Rdns struct {
 }
 
 type RdnsSpec struct {
-	KubeformOutput *RdnsSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *RdnsSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource RdnsSpecResource `json:"resource" tf:"resource"`
 

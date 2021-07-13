@@ -51,7 +51,7 @@ type StorageKeySpecBucketAccess struct {
 }
 
 type StorageKeySpec struct {
-	KubeformOutput *StorageKeySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StorageKeySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StorageKeySpecResource `json:"resource" tf:"resource"`
 

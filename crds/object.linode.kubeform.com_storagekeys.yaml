@@ -37,46 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  accessKey:
-                    description: This keypair's access key. This is not secret.
-                    type: string
-                  bucketAccess:
-                    description: A list of permissions to grant this limited access
-                      key.
-                    items:
-                      properties:
-                        bucketName:
-                          description: The unique label of the bucket to which the
-                            key will grant limited access.
-                          type: string
-                        cluster:
-                          description: The Object Storage cluster where a bucket to
-                            which the key is granting access is hosted.
-                          type: string
-                        permissions:
-                          description: This Limited Access Key’s permissions for the
-                            selected bucket.
-                          type: string
-                      required:
-                      - bucketName
-                      - cluster
-                      - permissions
-                      type: object
-                    type: array
-                  id:
-                    type: string
-                  label:
-                    description: The label given to this key. For display purposes
-                      only.
-                    type: string
-                  limited:
-                    description: Whether or not this key is a limited access key.
-                    type: boolean
-                required:
-                - label
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -134,6 +94,46 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  accessKey:
+                    description: This keypair's access key. This is not secret.
+                    type: string
+                  bucketAccess:
+                    description: A list of permissions to grant this limited access
+                      key.
+                    items:
+                      properties:
+                        bucketName:
+                          description: The unique label of the bucket to which the
+                            key will grant limited access.
+                          type: string
+                        cluster:
+                          description: The Object Storage cluster where a bucket to
+                            which the key is granting access is hosted.
+                          type: string
+                        permissions:
+                          description: This Limited Access Key’s permissions for the
+                            selected bucket.
+                          type: string
+                      required:
+                      - bucketName
+                      - cluster
+                      - permissions
+                      type: object
+                    type: array
+                  id:
+                    type: string
+                  label:
+                    description: The label given to this key. For display purposes
+                      only.
+                    type: string
+                  limited:
+                    description: Whether or not this key is a limited access key.
+                    type: boolean
+                required:
+                - label
                 type: object
               terminationPolicy:
                 enum:

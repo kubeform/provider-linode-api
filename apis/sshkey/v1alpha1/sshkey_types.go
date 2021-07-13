@@ -42,7 +42,7 @@ type Sshkey struct {
 }
 
 type SshkeySpec struct {
-	KubeformOutput *SshkeySpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *SshkeySpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource SshkeySpecResource `json:"resource" tf:"resource"`
 

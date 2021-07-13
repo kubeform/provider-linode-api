@@ -54,7 +54,7 @@ type NodebalancerSpecTransfer struct {
 }
 
 type NodebalancerSpec struct {
-	KubeformOutput *NodebalancerSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *NodebalancerSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource NodebalancerSpecResource `json:"resource" tf:"resource"`
 
