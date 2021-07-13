@@ -63,7 +63,7 @@ type StackscriptSpecUserDefinedFields struct {
 }
 
 type StackscriptSpec struct {
-	KubeformOutput *StackscriptSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StackscriptSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StackscriptSpecResource `json:"resource" tf:"resource"`
 

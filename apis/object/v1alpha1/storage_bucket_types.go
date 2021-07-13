@@ -86,7 +86,7 @@ type StorageBucketSpecLifecycleRule struct {
 }
 
 type StorageBucketSpec struct {
-	KubeformOutput *StorageBucketSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *StorageBucketSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource StorageBucketSpecResource `json:"resource" tf:"resource"`
 

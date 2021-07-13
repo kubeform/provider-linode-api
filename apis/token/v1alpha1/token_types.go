@@ -42,7 +42,7 @@ type Token struct {
 }
 
 type TokenSpec struct {
-	KubeformOutput *TokenSpecResource `json:"kubeformOutput,omitempty" tf:"-"`
+	State *TokenSpecResource `json:"state,omitempty" tf:"-"`
 
 	Resource TokenSpecResource `json:"resource" tf:"resource"`
 

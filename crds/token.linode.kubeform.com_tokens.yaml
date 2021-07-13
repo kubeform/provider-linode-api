@@ -37,33 +37,6 @@ spec:
             type: object
           spec:
             properties:
-              kubeformOutput:
-                properties:
-                  created:
-                    description: The date and time this token was created.
-                    type: string
-                  expiry:
-                    description: When this token will expire. Personal Access Tokens
-                      cannot be renewed, so after this time the token will be completely
-                      unusable and a new token will need to be generated. Tokens may
-                      be created with 'null' as their expiry and will never expire
-                      unless revoked.
-                    type: string
-                  id:
-                    type: string
-                  label:
-                    description: The label of the Linode Token.
-                    type: string
-                  scopes:
-                    description: The scopes this token was created with. These define
-                      what parts of the Account the token can be used to access. Many
-                      command-line tools, such as the Linode CLI, require tokens with
-                      access to *. Tokens with more restrictive scopes are generally
-                      more secure.
-                    type: string
-                required:
-                - scopes
-                type: object
               providerRef:
                 description: LocalObjectReference contains enough information to let
                   you locate the referenced object inside the same namespace.
@@ -108,6 +81,33 @@ spec:
                     description: 'Name of the referent. More info: https://kubernetes.io/docs/concepts/overview/working-with-objects/names/#names
                       TODO: Add other useful fields. apiVersion, kind, uid?'
                     type: string
+                type: object
+              state:
+                properties:
+                  created:
+                    description: The date and time this token was created.
+                    type: string
+                  expiry:
+                    description: When this token will expire. Personal Access Tokens
+                      cannot be renewed, so after this time the token will be completely
+                      unusable and a new token will need to be generated. Tokens may
+                      be created with 'null' as their expiry and will never expire
+                      unless revoked.
+                    type: string
+                  id:
+                    type: string
+                  label:
+                    description: The label of the Linode Token.
+                    type: string
+                  scopes:
+                    description: The scopes this token was created with. These define
+                      what parts of the Account the token can be used to access. Many
+                      command-line tools, such as the Linode CLI, require tokens with
+                      access to *. Tokens with more restrictive scopes are generally
+                      more secure.
+                    type: string
+                required:
+                - scopes
                 type: object
               terminationPolicy:
                 enum:
