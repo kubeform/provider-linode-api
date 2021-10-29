@@ -110,6 +110,7 @@ spec:
                             applies to.
                           items:
                             type: string
+                          minItems: 1
                           type: array
                         label:
                           description: Used to identify this rule. For display purposes
@@ -165,6 +166,7 @@ spec:
                             applies to.
                           items:
                             type: string
+                          minItems: 1
                           type: array
                         label:
                           description: Used to identify this rule. For display purposes
@@ -257,6 +259,7 @@ spec:
                             applies to.
                           items:
                             type: string
+                          minItems: 1
                           type: array
                         label:
                           description: Used to identify this rule. For display purposes
@@ -312,6 +315,7 @@ spec:
                             applies to.
                           items:
                             type: string
+                          minItems: 1
                           type: array
                         label:
                           description: Used to identify this rule. For display purposes

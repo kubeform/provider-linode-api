@@ -48,13 +48,6 @@ type UserSpecDomainGrant struct {
 	Permissions *string `json:"permissions" tf:"permissions"`
 }
 
-type UserSpecFirewallGrant struct {
-	// The ID of the entity this grant applies to.
-	ID *int64 `json:"ID" tf:"id"`
-	// The level of access this User has to this entity. If null, this User has no access.
-	Permissions *string `json:"permissions" tf:"permissions"`
-}
-
 type UserSpecGlobalGrants struct {
 	// The level of access this User has to Account-level actions, like billing information. A restricted User will never be able to manage users.
 	// +optional
@@ -62,9 +55,6 @@ type UserSpecGlobalGrants struct {
 	// If true, this User may add Domains.
 	// +optional
 	AddDomains *bool `json:"addDomains,omitempty" tf:"add_domains"`
-	// If true, this User may add Firewalls.
-	// +optional
-	AddFirewalls *bool `json:"addFirewalls,omitempty" tf:"add_firewalls"`
 	// If true, this User may add Images.
 	// +optional
 	AddImages *bool `json:"addImages,omitempty" tf:"add_images"`
@@ -155,9 +145,6 @@ type UserSpecResource struct {
 	DomainGrant []UserSpecDomainGrant `json:"domainGrant,omitempty" tf:"domain_grant"`
 	// The email of the user.
 	Email *string `json:"email" tf:"email"`
-	// A set containing all of the user's active grants.
-	// +optional
-	FirewallGrant []UserSpecFirewallGrant `json:"firewallGrant,omitempty" tf:"firewall_grant"`
 	// A structure containing the Account-level grants a User has.
 	// +optional
 	GlobalGrants *UserSpecGlobalGrants `json:"globalGrants,omitempty" tf:"global_grants"`

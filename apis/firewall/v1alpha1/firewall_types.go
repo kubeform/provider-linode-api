@@ -67,6 +67,7 @@ type FirewallSpecInbound struct {
 	Ipv4 []string `json:"ipv4,omitempty" tf:"ipv4"`
 	// A list of IPv6 addresses or networks this rule applies to.
 	// +optional
+	// +kubebuilder:validation:MinItems=1
 	Ipv6 []string `json:"ipv6,omitempty" tf:"ipv6"`
 	// Used to identify this rule. For display purposes only.
 	Label *string `json:"label" tf:"label"`
@@ -85,6 +86,7 @@ type FirewallSpecOutbound struct {
 	Ipv4 []string `json:"ipv4,omitempty" tf:"ipv4"`
 	// A list of IPv6 addresses or networks this rule applies to.
 	// +optional
+	// +kubebuilder:validation:MinItems=1
 	Ipv6 []string `json:"ipv6,omitempty" tf:"ipv6"`
 	// Used to identify this rule. For display purposes only.
 	Label *string `json:"label" tf:"label"`

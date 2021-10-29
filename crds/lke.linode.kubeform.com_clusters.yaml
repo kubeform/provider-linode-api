@@ -80,24 +80,6 @@ spec:
                           description: The ID of the Node Pool.
                           format: int64
                           type: integer
-                        autoscaler:
-                          description: When specified, the number of nodes autoscales
-                            within the defined minimum and maximum values.
-                          properties:
-                            max:
-                              description: The maximum number of nodes to autoscale
-                                to.
-                              format: int64
-                              type: integer
-                            min:
-                              description: The minimum number of nodes to autoscale
-                                to.
-                              format: int64
-                              type: integer
-                          required:
-                          - max
-                          - min
-                          type: object
                         count:
                           description: The number of nodes in the Node Pool.
                           format: int64
@@ -218,24 +200,6 @@ spec:
                           description: The ID of the Node Pool.
                           format: int64
                           type: integer
-                        autoscaler:
-                          description: When specified, the number of nodes autoscales
-                            within the defined minimum and maximum values.
-                          properties:
-                            max:
-                              description: The maximum number of nodes to autoscale
-                                to.
-                              format: int64
-                              type: integer
-                            min:
-                              description: The minimum number of nodes to autoscale
-                                to.
-                              format: int64
-                              type: integer
-                          required:
-                          - max
-                          - min
-                          type: object
                         count:
                           description: The number of nodes in the Node Pool.
                           format: int64
