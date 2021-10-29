@@ -77,23 +77,6 @@ spec:
                   email:
                     description: The email of the user.
                     type: string
-                  firewallGrant:
-                    description: A set containing all of the user's active grants.
-                    items:
-                      properties:
-                        ID:
-                          description: The ID of the entity this grant applies to.
-                          format: int64
-                          type: integer
-                        permissions:
-                          description: The level of access this User has to this entity.
-                            If null, this User has no access.
-                          type: string
-                      required:
-                      - ID
-                      - permissions
-                      type: object
-                    type: array
                   globalGrants:
                     description: A structure containing the Account-level grants a
                       User has.
@@ -105,9 +88,6 @@ spec:
                         type: string
                       addDomains:
                         description: If true, this User may add Domains.
-                        type: boolean
-                      addFirewalls:
-                        description: If true, this User may add Firewalls.
                         type: boolean
                       addImages:
                         description: If true, this User may add Images.
@@ -281,23 +261,6 @@ spec:
                   email:
                     description: The email of the user.
                     type: string
-                  firewallGrant:
-                    description: A set containing all of the user's active grants.
-                    items:
-                      properties:
-                        ID:
-                          description: The ID of the entity this grant applies to.
-                          format: int64
-                          type: integer
-                        permissions:
-                          description: The level of access this User has to this entity.
-                            If null, this User has no access.
-                          type: string
-                      required:
-                      - ID
-                      - permissions
-                      type: object
-                    type: array
                   globalGrants:
                     description: A structure containing the Account-level grants a
                       User has.
@@ -309,9 +272,6 @@ spec:
                         type: string
                       addDomains:
                         description: If true, this User may add Domains.
-                        type: boolean
-                      addFirewalls:
-                        description: If true, this User may add Firewalls.
                         type: boolean
                       addImages:
                         description: If true, this User may add Images.

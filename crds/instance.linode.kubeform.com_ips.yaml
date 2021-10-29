@@ -60,10 +60,6 @@ spec:
                   address:
                     description: The resulting IPv4 address.
                     type: string
-                  applyImmediately:
-                    description: If true, the instance will be rebooted to update
-                      network interfaces.
-                    type: boolean
                   gateway:
                     description: The default gateway for this address
                     type: string
@@ -102,10 +98,6 @@ spec:
                   address:
                     description: The resulting IPv4 address.
                     type: string
-                  applyImmediately:
-                    description: If true, the instance will be rebooted to update
-                      network interfaces.
-                    type: boolean
                   gateway:
                     description: The default gateway for this address
                     type: string

@@ -66,7 +66,7 @@ type DomainSpecResource struct {
 	Description *string `json:"description,omitempty" tf:"description"`
 	// The domain this Domain represents. These must be unique in our system; you cannot have two Domains representing the same domain.
 	Domain *string `json:"domain" tf:"domain"`
-	// The amount of time in seconds that may pass before this Domain is no longer Valid values are 0, 30, 120, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
+	// The amount of time in seconds that may pass before this Domain is no longer authoritative. Valid values are 0, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
 	// +optional
 	ExpireSec *int64 `json:"expireSec,omitempty" tf:"expire_sec"`
 	// The group this Domain belongs to. This is for display purposes only.
@@ -75,10 +75,10 @@ type DomainSpecResource struct {
 	// The IP addresses representing the master DNS for this Domain.
 	// +optional
 	MasterIPS []string `json:"masterIPS,omitempty" tf:"master_ips"`
-	// The amount of time in seconds before this Domain should be refreshed. Valid values are 0, 30, 120, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
+	// The amount of time in seconds before this Domain should be refreshed. Valid values are 0, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
 	// +optional
 	RefreshSec *int64 `json:"refreshSec,omitempty" tf:"refresh_sec"`
-	// The interval, in seconds, at which a failed refresh should be retried. Valid values are 0, 30, 120, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
+	// The interval, in seconds, at which a failed refresh should be retried. Valid values are 0, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
 	// +optional
 	RetrySec *int64 `json:"retrySec,omitempty" tf:"retry_sec"`
 	// Start of Authority email address. This is required for master Domains.
@@ -90,7 +90,7 @@ type DomainSpecResource struct {
 	// An array of tags applied to this object. Tags are for organizational purposes only.
 	// +optional
 	Tags []string `json:"tags,omitempty" tf:"tags"`
-	// 'Time to Live' - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers. Valid values are 0, 30, 120, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
+	// 'Time to Live' - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers. Valid values are 0, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
 	// +optional
 	TtlSec *int64 `json:"ttlSec,omitempty" tf:"ttl_sec"`
 	// If this Domain represents the authoritative source of information for the domain it describes, or if it is a read-only copy of a master (also called a slave).

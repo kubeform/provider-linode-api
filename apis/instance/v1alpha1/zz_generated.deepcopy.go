@@ -1095,11 +1095,6 @@ func (in *IpSpecResource) DeepCopyInto(out *IpSpecResource) {
 		*out = new(string)
 		**out = **in
 	}
-	if in.ApplyImmediately != nil {
-		in, out := &in.ApplyImmediately, &out.ApplyImmediately
-		*out = new(bool)
-		**out = **in
-	}
 	if in.Gateway != nil {
 		in, out := &in.Gateway, &out.Gateway
 		*out = new(string)
