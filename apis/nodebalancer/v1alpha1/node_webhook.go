@@ -89,7 +89,7 @@ func (r *Node) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range nodeForceNewList {
+	for key, _ := range nodeForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

@@ -31,30 +31,34 @@ import (
 	"sigs.k8s.io/controller-runtime/pkg/webhook"
 )
 
-func (r *StorageObject) SetupWebhookWithManager(mgr ctrl.Manager) error {
+func (r *Device) SetupWebhookWithManager(mgr ctrl.Manager) error {
 	return ctrl.NewWebhookManagedBy(mgr).
 		For(r).
 		Complete()
 }
 
-//+kubebuilder:webhook:verbs=create;update;delete,path=/validate-object-linode-kubeform-com-v1alpha1-storageobject,mutating=false,failurePolicy=fail,groups=object.linode.kubeform.com,resources=storageobjects,versions=v1alpha1,name=storageobject.object.linode.kubeform.io,sideEffects=None,admissionReviewVersions=v1
+//+kubebuilder:webhook:verbs=create;update;delete,path=/validate-firewall-linode-kubeform-com-v1alpha1-device,mutating=false,failurePolicy=fail,groups=firewall.linode.kubeform.com,resources=devices,versions=v1alpha1,name=device.firewall.linode.kubeform.io,sideEffects=None,admissionReviewVersions=v1
 
-var _ webhook.Validator = &StorageObject{}
+var _ webhook.Validator = &Device{}
 
-var storageobjectForceNewList = map[string]bool{}
+var deviceForceNewList = map[string]bool{
+	"/entity_id":   true,
+	"/entity_type": true,
+	"/firewall_id": true,
+}
 
 // ValidateCreate implements webhook.Validator so a webhook will be registered for the type
-func (r *StorageObject) ValidateCreate() error {
+func (r *Device) ValidateCreate() error {
 	return nil
 }
 
 // ValidateUpdate implements webhook.Validator so a webhook will be registered for the type
-func (r *StorageObject) ValidateUpdate(old runtime.Object) error {
+func (r *Device) ValidateUpdate(old runtime.Object) error {
 	if r.Spec.Resource.ID == "" {
 		return nil
 	}
 	newObj := r.Spec.Resource
-	res := old.(*StorageObject)
+	res := old.(*Device)
 	oldObj := res.Spec.Resource
 
 	jsnitr := jsoniter.Config{
@@ -86,7 +90,7 @@ func (r *StorageObject) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key, _ := range storageobjectForceNewList {
+	for key, _ := range deviceForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false
@@ -94,16 +98,16 @@ func (r *StorageObject) ValidateUpdate(old runtime.Object) error {
 		util.CheckIfAnyDifference("", keySplit, 0, length, &checkIfAnyDif, tempNew, tempOld, tempNew)
 
 		if checkIfAnyDif && r.Spec.UpdatePolicy == base.UpdatePolicyDoNotDestroy {
-			return fmt.Errorf(`storageobject "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
+			return fmt.Errorf(`device "%v/%v" immutable field can't be updated. To update, change spec.updatePolicy to Destroy`, r.Namespace, r.Name)
 		}
 	}
 	return nil
 }
 
 // ValidateDelete implements webhook.Validator so a webhook will be registered for the type
-func (r *StorageObject) ValidateDelete() error {
+func (r *Device) ValidateDelete() error {
 	if r.Spec.TerminationPolicy == base.TerminationPolicyDoNotTerminate {
-		return fmt.Errorf(`storageobject "%v/%v" can't be terminated. To delete, change spec.terminationPolicy to Delete`, r.Namespace, r.Name)
+		return fmt.Errorf(`device "%v/%v" can't be terminated. To delete, change spec.terminationPolicy to Delete`, r.Namespace, r.Name)
 	}
 	return nil
 }

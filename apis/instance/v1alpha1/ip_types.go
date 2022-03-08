@@ -61,6 +61,9 @@ type IpSpecResource struct {
 	// The resulting IPv4 address.
 	// +optional
 	Address *string `json:"address,omitempty" tf:"address"`
+	// If true, the instance will be rebooted to update network interfaces.
+	// +optional
+	ApplyImmediately *bool `json:"applyImmediately,omitempty" tf:"apply_immediately"`
 	// The default gateway for this address
 	// +optional
 	Gateway *string `json:"gateway,omitempty" tf:"gateway"`

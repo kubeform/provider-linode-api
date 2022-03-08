@@ -5,14 +5,14 @@ metadata:
   labels:
     app.kubernetes.io/name: linode.kubeform.com
     app.kubernetes.io/part-of: kubeform.com
-  name: rdns.rdns.linode.kubeform.com
+  name: devices.firewall.linode.kubeform.com
 spec:
-  group: rdns.linode.kubeform.com
+  group: firewall.linode.kubeform.com
   names:
-    kind: Rdns
-    listKind: RdnsList
-    plural: rdns
-    singular: rdns
+    kind: Device
+    listKind: DeviceList
+    plural: devices
+    singular: device
   scope: Namespaced
   versions:
   - additionalPrinterColumns:
@@ -57,121 +57,57 @@ spec:
                 type: object
               resource:
                 properties:
-                  address:
-                    description: The public Linode IPv4 or IPv6 address to operate
-                      on.
+                  created:
+                    description: When this Firewall Device was created.
                     type: string
+                  entityID:
+                    description: The ID of the entity to create a Firewall device
+                      for.
+                    format: int64
+                    type: integer
+                  entityType:
+                    description: The type of the entity to create a Firewall device
+                      for.
+                    type: string
+                  firewallID:
+                    description: The ID of the Firewall to access.
+                    format: int64
+                    type: integer
                   id:
                     type: string
-                  rdns:
-                    description: The reverse DNS assigned to this address. For public
-                      IPv4 addresses, this will be set to a default value provided
-                      by Linode if not explicitly set.
+                  updated:
+                    description: When this Firewall Device was updated.
                     type: string
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                  waitForAvailable:
-                    description: If true, the RDNS assignment will be retried within
-                      the operation timeout period.
-                    type: boolean
                 required:
-                - address
-                - rdns
+                - entityID
+                - firewallID
                 type: object
               state:
                 properties:
-                  address:
-                    description: The public Linode IPv4 or IPv6 address to operate
-                      on.
+                  created:
+                    description: When this Firewall Device was created.
                     type: string
+                  entityID:
+                    description: The ID of the entity to create a Firewall device
+                      for.
+                    format: int64
+                    type: integer
+                  entityType:
+                    description: The type of the entity to create a Firewall device
+                      for.
+                    type: string
+                  firewallID:
+                    description: The ID of the Firewall to access.
+                    format: int64
+                    type: integer
                   id:
                     type: string
-                  rdns:
-                    description: The reverse DNS assigned to this address. For public
-                      IPv4 addresses, this will be set to a default value provided
-                      by Linode if not explicitly set.
+                  updated:
+                    description: When this Firewall Device was updated.
                     type: string
-                  timeouts:
-                    properties:
-                      create:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      default:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      delete:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      read:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                      update:
-                        description: A Duration represents the elapsed time between
-                          two instants as an int64 nanosecond count. The representation
-                          limits the largest representable duration to approximately
-                          290 years.
-                        format: int64
-                        type: integer
-                    type: object
-                  waitForAvailable:
-                    description: If true, the RDNS assignment will be retried within
-                      the operation timeout period.
-                    type: boolean
                 required:
-                - address
-                - rdns
+                - entityID
+                - firewallID
                 type: object
               terminationPolicy:
                 enum:

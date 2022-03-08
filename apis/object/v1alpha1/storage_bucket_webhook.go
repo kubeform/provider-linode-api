@@ -89,7 +89,7 @@ func (r *StorageBucket) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range storagebucketForceNewList {
+	for key, _ := range storagebucketForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

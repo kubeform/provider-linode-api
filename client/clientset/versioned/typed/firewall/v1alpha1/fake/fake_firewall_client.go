@@ -29,6 +29,10 @@ type FakeFirewallV1alpha1 struct {
 	*testing.Fake
 }
 
+func (c *FakeFirewallV1alpha1) Devices(namespace string) v1alpha1.DeviceInterface {
+	return &FakeDevices{c, namespace}
+}
+
 func (c *FakeFirewallV1alpha1) Firewalls(namespace string) v1alpha1.FirewallInterface {
 	return &FakeFirewalls{c, namespace}
 }

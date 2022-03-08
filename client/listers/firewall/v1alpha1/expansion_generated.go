@@ -18,6 +18,14 @@ limitations under the License.
 
 package v1alpha1
 
+// DeviceListerExpansion allows custom methods to be added to
+// DeviceLister.
+type DeviceListerExpansion interface{}
+
+// DeviceNamespaceListerExpansion allows custom methods to be added to
+// DeviceNamespaceLister.
+type DeviceNamespaceListerExpansion interface{}
+
 // FirewallListerExpansion allows custom methods to be added to
 // FirewallLister.
 type FirewallListerExpansion interface{}
