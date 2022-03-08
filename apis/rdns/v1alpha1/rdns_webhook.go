@@ -88,7 +88,7 @@ func (r *Rdns) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range rdnsForceNewList {
+	for key, _ := range rdnsForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

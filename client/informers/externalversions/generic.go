@@ -72,6 +72,8 @@ func (f *sharedInformerFactory) ForResource(resource schema.GroupVersionResource
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Domain().V1alpha1().Records().Informer()}, nil
 
 		// Group=firewall.linode.kubeform.com, Version=v1alpha1
+	case firewallv1alpha1.SchemeGroupVersion.WithResource("devices"):
+		return &genericInformer{resource: resource.GroupResource(), informer: f.Firewall().V1alpha1().Devices().Informer()}, nil
 	case firewallv1alpha1.SchemeGroupVersion.WithResource("firewalls"):
 		return &genericInformer{resource: resource.GroupResource(), informer: f.Firewall().V1alpha1().Firewalls().Informer()}, nil
 

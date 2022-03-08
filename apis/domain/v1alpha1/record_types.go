@@ -82,7 +82,7 @@ type RecordSpecResource struct {
 	Tag *string `json:"tag,omitempty" tf:"tag"`
 	// The target for this Record. This field's actual usage depends on the type of record this represents. For A and AAAA records, this is the address the named Domain should resolve to.
 	Target *string `json:"target" tf:"target"`
-	// 'Time to Live' - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers. Valid values are 0, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
+	// 'Time to Live' - the amount of time in seconds that this Domain's records may be cached by resolvers or other domain servers. Valid values are 30, 120, 300, 3600, 7200, 14400, 28800, 57600, 86400, 172800, 345600, 604800, 1209600, and 2419200 - any other value will be rounded to the nearest valid value.
 	// +optional
 	TtlSec *int64 `json:"ttlSec,omitempty" tf:"ttl_sec"`
 	// The relative weight of this Record. Higher values are preferred.

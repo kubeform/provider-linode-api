@@ -41,6 +41,19 @@ type Cluster struct {
 	Status            ClusterStatus `json:"status,omitempty"`
 }
 
+type ClusterSpecControlPlane struct {
+	// Defines whether High Availability is enabled for the Control Plane Components of the cluster.
+	// +optional
+	HighAvailability *bool `json:"highAvailability,omitempty" tf:"high_availability"`
+}
+
+type ClusterSpecPoolAutoscaler struct {
+	// The maximum number of nodes to autoscale to.
+	Max *int64 `json:"max" tf:"max"`
+	// The minimum number of nodes to autoscale to.
+	Min *int64 `json:"min" tf:"min"`
+}
+
 type ClusterSpecPoolNodes struct {
 	// The ID of the node.
 	// +optional
@@ -54,6 +67,9 @@ type ClusterSpecPoolNodes struct {
 }
 
 type ClusterSpecPool struct {
+	// When specified, the number of nodes autoscales within the defined minimum and maximum values.
+	// +optional
+	Autoscaler *ClusterSpecPoolAutoscaler `json:"autoscaler,omitempty" tf:"autoscaler"`
 	// The number of nodes in the Node Pool.
 	Count *int64 `json:"count" tf:"count"`
 	// The ID of the Node Pool.
@@ -90,6 +106,9 @@ type ClusterSpecResource struct {
 	// The API endpoints for the cluster.
 	// +optional
 	ApiEndpoints []string `json:"apiEndpoints,omitempty" tf:"api_endpoints"`
+	// Defines settings for the Kubernetes Control Plane.
+	// +optional
+	ControlPlane *ClusterSpecControlPlane `json:"controlPlane,omitempty" tf:"control_plane"`
 	// The desired Kubernetes version for this Kubernetes cluster in the format of <major>.<minor>. The latest supported patch version will be deployed.
 	K8sVersion *string `json:"k8sVersion" tf:"k8s_version"`
 	// The Base64-encoded Kubeconfig for the cluster.

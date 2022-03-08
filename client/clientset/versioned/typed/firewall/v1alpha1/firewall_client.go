@@ -27,12 +27,17 @@ import (
 
 type FirewallV1alpha1Interface interface {
 	RESTClient() rest.Interface
+	DevicesGetter
 	FirewallsGetter
 }
 
 // FirewallV1alpha1Client is used to interact with features provided by the firewall.linode.kubeform.com group.
 type FirewallV1alpha1Client struct {
 	restClient rest.Interface
+}
+
+func (c *FirewallV1alpha1Client) Devices(namespace string) DeviceInterface {
+	return newDevices(c, namespace)
 }
 
 func (c *FirewallV1alpha1Client) Firewalls(namespace string) FirewallInterface {

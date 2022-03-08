@@ -89,7 +89,7 @@ func (r *Ip) ValidateUpdate(old runtime.Object) error {
 		return err
 	}
 
-	for key := range ipForceNewList {
+	for key, _ := range ipForceNewList {
 		keySplit := strings.Split(key, "/*")
 		length := len(keySplit)
 		checkIfAnyDif := false

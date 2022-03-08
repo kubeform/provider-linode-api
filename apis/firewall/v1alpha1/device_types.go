@@ -34,17 +34,17 @@ import (
 // +kubebuilder:subresource:status
 // +kubebuilder:printcolumn:name="Phase",type=string,JSONPath=`.status.phase`
 
-type Rdns struct {
+type Device struct {
 	metav1.TypeMeta   `json:",inline,omitempty"`
 	metav1.ObjectMeta `json:"metadata,omitempty"`
-	Spec              RdnsSpec   `json:"spec,omitempty"`
-	Status            RdnsStatus `json:"status,omitempty"`
+	Spec              DeviceSpec   `json:"spec,omitempty"`
+	Status            DeviceStatus `json:"status,omitempty"`
 }
 
-type RdnsSpec struct {
-	State *RdnsSpecResource `json:"state,omitempty" tf:"-"`
+type DeviceSpec struct {
+	State *DeviceSpecResource `json:"state,omitempty" tf:"-"`
 
-	Resource RdnsSpecResource `json:"resource" tf:"resource"`
+	Resource DeviceSpecResource `json:"resource" tf:"resource"`
 
 	UpdatePolicy base.UpdatePolicy `json:"updatePolicy,omitempty" tf:"-"`
 
@@ -55,21 +55,25 @@ type RdnsSpec struct {
 	BackendRef *core.LocalObjectReference `json:"backendRef,omitempty" tf:"-"`
 }
 
-type RdnsSpecResource struct {
-	Timeouts *base.ResourceTimeout `json:"timeouts,omitempty" tf:"timeouts"`
-
+type DeviceSpecResource struct {
 	ID string `json:"id,omitempty" tf:"id,omitempty"`
 
-	// The public Linode IPv4 or IPv6 address to operate on.
-	Address *string `json:"address" tf:"address"`
-	// The reverse DNS assigned to this address. For public IPv4 addresses, this will be set to a default value provided by Linode if not explicitly set.
-	Rdns *string `json:"rdns" tf:"rdns"`
-	// If true, the RDNS assignment will be retried within the operation timeout period.
+	// When this Firewall Device was created.
 	// +optional
-	WaitForAvailable *bool `json:"waitForAvailable,omitempty" tf:"wait_for_available"`
+	Created *string `json:"created,omitempty" tf:"created"`
+	// The ID of the entity to create a Firewall device for.
+	EntityID *int64 `json:"entityID" tf:"entity_id"`
+	// The type of the entity to create a Firewall device for.
+	// +optional
+	EntityType *string `json:"entityType,omitempty" tf:"entity_type"`
+	// The ID of the Firewall to access.
+	FirewallID *int64 `json:"firewallID" tf:"firewall_id"`
+	// When this Firewall Device was updated.
+	// +optional
+	Updated *string `json:"updated,omitempty" tf:"updated"`
 }
 
-type RdnsStatus struct {
+type DeviceStatus struct {
 	// Resource generation, which is updated on mutation by the API Server.
 	// +optional
 	ObservedGeneration int64 `json:"observedGeneration,omitempty"`
@@ -82,10 +86,10 @@ type RdnsStatus struct {
 // +k8s:deepcopy-gen:interfaces=k8s.io/apimachinery/pkg/runtime.Object
 // +kubebuilder:object:root=true
 
-// RdnsList is a list of Rdnss
-type RdnsList struct {
+// DeviceList is a list of Devices
+type DeviceList struct {
 	metav1.TypeMeta `json:",inline"`
 	metav1.ListMeta `json:"metadata,omitempty"`
-	// Items is a list of Rdns CRD objects
-	Items []Rdns `json:"items,omitempty"`
+	// Items is a list of Device CRD objects
+	Items []Device `json:"items,omitempty"`
 }
